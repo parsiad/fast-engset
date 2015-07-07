@@ -18,6 +18,9 @@ P = --------------------------    where    A = -------------.
 
 __Warning__: Certain texts use instead the __normalized__ offered traffic,  which is instead defined as ```E = lambda mu / N```.
 
+Example
+-------
+
 ```matlab
 m = 5  % Number of servers
 N = 10 % Number of sources
