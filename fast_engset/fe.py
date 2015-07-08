@@ -52,9 +52,11 @@ def compute(m, N, E, tol=1e-6):
     # Error checking
     if m < 0 or m % 1 != 0:
         raise ValueError('The number of servers must be a nonnegative integer.')
+    m = int(m)
 
     if N < 0 or N % 1 != 0:
         raise ValueError('The number of sources must be a nonnegative integer.')
+    N = int(N)
 
     if E <= 0:
         raise ValueError('The offered traffic must be a positive number.')
@@ -74,7 +76,7 @@ def __hyp2f1_coefficients(m, N):
     N -- a positive integer greater than m.
     """
 
-    f = m
+    f = float(m)
     g = N-m
     c = [0]*(m+1)
     c[0] = 1.
@@ -160,8 +162,8 @@ def __bisection(m, N, E, tol=pow(2,-24), n_max=1024, verbose=False):
     c = __hyp2f1_coefficients(m, N)
 
     y = N/E-1
-    lo = 0
-    hi = 1
+    lo = 0.
+    hi = 1.
     for n in range(1, n_max+1):
         P = (lo + hi) / 2
 
@@ -170,7 +172,7 @@ def __bisection(m, N, E, tol=pow(2,-24), n_max=1024, verbose=False):
             return P
 
         if 1/__hyp2f1(c, m, N, E, P+y, tol) < P: hi = P
-        else:                                  lo = P
+        else:                                    lo = P
 
 def __fixed_point(m, N, E, tol=pow(2,-24), P=0.5, n_max=1024, verbose=False):
     """ Computes the blocking probability of a finite population queue as given
