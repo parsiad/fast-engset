@@ -156,7 +156,7 @@ def __bisection(m, N, E, tol=pow(2,-24), n_max=1024, verbose=False):
     """ Computes the blocking probability of a finite population queue as given
     by the Engset formula using bisection.
 
-    For a list of parameters, see fe.newton.
+    For a list of parameters, see fe.__newton.
     """
 
     c = __hyp2f1_coefficients(m, N)
@@ -178,7 +178,7 @@ def __fixed_point(m, N, E, tol=pow(2,-24), P=0.5, n_max=1024, verbose=False):
     """ Computes the blocking probability of a finite population queue as given
     by the Engset formula using a fixed point iteration.
 
-    For a list of parameters, see fe.newton.
+    For a list of parameters, see fe.__newton.
     """
 
     c = __hyp2f1_coefficients(m, N)
