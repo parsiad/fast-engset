@@ -1,7 +1,7 @@
 fast-engset
 ===========
 
-MATLAB code to compute the blocking probability ```P``` in the Engset model:
+Python/MATLAB/GNU Octave code to compute the blocking probability ```P``` in the Engset model:
 
 ```
                          m                              
