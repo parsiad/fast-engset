@@ -14,9 +14,19 @@ P = --------------------------    where    A = -------------.
 
 ```N``` denotes the number of *sources*, ```m``` the number of *servers*, and ```E``` the *offered traffic* from __all__ sources. 
 
-```E``` is usually given by ```E = lambda mu```, where ```lambda``` is the *arrival rate* of all sources and ```mu``` is the *mean service time* for a given request.
+```E``` is given by ```E = N * lambda / mu```, where ```lambda``` is the *arrival rate* of a source and ```1/mu``` is the *mean service time* for a given request.
 
-__Warning__: Certain texts use instead the __normalized__ offered traffic,  which is instead defined as ```E = lambda mu / N```.
+If you are using this in an academic work, please cite the corresponding paper:
+
+```@article{azimzadeh2015fast,
+  title={Fast Engset computation},
+  author={Azimzadeh, Parsiad and Carpenter, Tommy},
+  journal={arXiv preprint arXiv:1511.00291},
+  year={2015},
+  url={http://arxiv.org/pdf/1511.00291.pdf}
+}```
+
+__Warning__: Certain texts use instead the __normalized__ offered traffic,  which is instead defined as ```alpha = lambda / mu```. In this case, ```E = N * alpha```.
 
 Installation
 =======
