@@ -55,8 +55,8 @@ def compute(m, N, E, tol=1e-6):
     m       -- number of servers (a nonnegative integer).
     N       -- number of sources (a nonnegative integer).
     E       -- total offered traffic from all sources (a positive number) given
-               by E = N * lambda * mu, where lambda is the arrival rate of
-               requests from a source and mu is the mean service time.
+               by E = N * lambda / mu, where lambda is the arrival rate of
+               requests from a source and 1/mu is the mean service time.
     tol     -- Error tolerance (default 1e-6).
     """
 
