@@ -18,13 +18,15 @@ P = --------------------------    where    A = -------------.
 
 If you are using this in an academic work, please cite the corresponding paper:
 
-```@article{azimzadeh2015fast,
+```
+@article{azimzadeh2015fast,
   title={Fast Engset computation},
   author={Azimzadeh, Parsiad and Carpenter, Tommy},
   journal={arXiv preprint arXiv:1511.00291},
   year={2015},
   url={http://arxiv.org/pdf/1511.00291.pdf}
-}```
+}
+```
 
 __Warning__: Certain texts use instead the __normalized__ offered traffic,  which is instead defined as ```alpha = lambda / mu```. In this case, ```E = N * alpha```.
 
