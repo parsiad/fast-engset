@@ -4,19 +4,17 @@ fast-engset
 Python code to compute the blocking probability ```P``` in the Engset model:
 
 ```
-                         m                              
-         binom{N - 1}{m}M                            1        
+                         m
+         binom{N - 1}{m}M                            1
 P = --------------------------    where    M = ---------------.
-     __ m                    X                  1 - E/N(1 - P)   
-    \        binom{N - 1}{X}M                           
-    /__ X = 0                                           
+     __ m                    X                  1 - E/N(1 - P)
+    \        binom{N - 1}{X}M
+    /__ X = 0
 ```
 
-```N``` denotes the number of *sources*, ```m``` the number of *servers*, and ```E``` the *offered traffic* from __all__ sources. 
+```N``` denotes the number of *sources*, ```m``` the number of *servers*, and ```E``` the *offered traffic* from __all__ sources.
 
-```E``` is given by ```E = N * lambda / mu```, where ```lambda``` is the *arrival rate* of a source and ```1/mu``` is the *mean service time* for a given request.
-
-__Warning__: Don't forget to convert to the appropriate units! Certain texts use instead the __per-source__ offered traffic,  which is instead defined as ```alpha = E / N = lambda / mu```.
+```E``` is the *total offered traffic* given by ```E = N * alpha```, where ```alpha``` is the *offered traffic per-source*.
 
 Installation
 =======
