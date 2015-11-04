@@ -40,9 +40,10 @@ Example usage:
 
 from fast_engset import fe
 
-m = 5  # Number of servers
-N = 10 # Number of sources
-E = 2  # Total offered traffic from all sources
+m     = 5          # Number of servers
+N     = 10         # Number of sources
+alpha = 0.2        # Offered traffic from a SINGLE source
+E     = N * alpha  # Total offered traffic from ALL sources
 
 # Blocking probability
 P = fe.compute(m, N, E)

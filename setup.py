@@ -1,19 +1,20 @@
-import sys
+import os
 from setuptools import setup, find_packages
+from pip.req import parse_requirements
+from pip.download import PipSession
 
-with open('requirements.txt') as f:
-    required = [line for line in f.read().splitlines() if not line.startswith("#")]
-
+install_reqs = parse_requirements("requirements.txt", session=PipSession())
+reqs = [str(ir.req) for ir in install_reqs]
 
 setup(
     name="fast-engset",
-    version="2.0.0",
+    version="2.1.0",
     packages=find_packages(),
     author="Parsiad Azimzadeh and Tommy Carpenter",
     author_email="parsiad.azimzadeh@gmail.com",
     description="Python code to compute the blocking probability P in the Engset Model",
     license="MIT",
-    install_requires=required,
+    install_requires=reqs,
     zip_safe=False,
     include_package_data=True      
 )
