@@ -25,6 +25,17 @@ THE SOFTWARE.
 
 Computes the blocking probability of a finite population queue.
 
+If you are using this in an academic work, please cite the corresponding
+paper:
+
+@article{azimzadeh2015fast,
+  title={Fast Engset computation},
+  author={Azimzadeh, Parsiad and Carpenter, Tommy},
+  journal={arXiv preprint arXiv:1511.00291},
+  year={2015},
+  url={http://arxiv.org/pdf/1511.00291.pdf}
+}
+
 Example usage:
 
 from fast_engset import fe
@@ -43,9 +54,9 @@ def compute(m, N, E, tol=1e-6):
 
     m       -- number of servers (a nonnegative integer).
     N       -- number of sources (a nonnegative integer).
-    E       -- offered traffic from all sources (a positive number) given by
-               E = lambda * mu, where lambda is the arrival rate of requests and
-               mu is the mean service time.
+    E       -- total offered traffic from all sources (a positive number) given
+               by E = N * lambda * mu, where lambda is the arrival rate of
+               requests from a source and mu is the mean service time.
     tol     -- Error tolerance (default 1e-6).
     """
 
@@ -121,11 +132,6 @@ def __newton(m, N, E, tol=pow(2,-24), P=0.5, n_max=1024, verbose=False):
 
     If the iteration does not converge, None is returned.
 
-    m       -- number of servers.
-    N       -- number of sources.
-    E       -- offered traffic from all sources given by E = lambda * mu, where
-               lambda is the arrival rate of requests and mu is the mean service
-               time.
     tol     -- error tolerance (default 2^-24).
     P       -- initial guess for the blocking probability (default 0.5).
     n_max   -- max number of iterations before giving up (default 1024).
@@ -156,7 +162,7 @@ def __bisection(m, N, E, tol=pow(2,-24), n_max=1024, verbose=False):
     """ Computes the blocking probability of a finite population queue as given
     by the Engset formula using bisection.
 
-    For a list of parameters, see fe.newton.
+    For a list of parameters, see fe.__newton.
     """
 
     c = __hyp2f1_coefficients(m, N)
@@ -178,7 +184,7 @@ def __fixed_point(m, N, E, tol=pow(2,-24), P=0.5, n_max=1024, verbose=False):
     """ Computes the blocking probability of a finite population queue as given
     by the Engset formula using a fixed point iteration.
 
-    For a list of parameters, see fe.newton.
+    For a list of parameters, see fe.__newton.
     """
 
     c = __hyp2f1_coefficients(m, N)
