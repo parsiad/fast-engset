@@ -8,7 +8,7 @@ reqs = [str(ir.req) for ir in install_reqs]
 
 setup(
     name="fast-engset",
-    version="2.2.0",
+    version="2.3.0",
     packages=find_packages(),
     author="Parsiad Azimzadeh and Tommy Carpenter",
     author_email="parsiad.azimzadeh@gmail.com",
