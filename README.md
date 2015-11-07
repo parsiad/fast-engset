@@ -5,7 +5,7 @@ Python code to compute the blocking probability ```P``` in the Engset model:
 
 ```
                          m
-         binom{N - 1}{m}M                            1
+         binom{N - 1}{m}M                            E/N
 P = --------------------------    where    M = ---------------.
      __ m                    X                  1 - E/N(1 - P)
     \        binom{N - 1}{X}M
