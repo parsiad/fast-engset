@@ -44,8 +44,13 @@ If you are using this in an academic work, please cite the corresponding paper:
 @article{azimzadeh2015fast,
   title={Fast Engset computation},
   author={Azimzadeh, Parsiad and Carpenter, Tommy},
-  journal={arXiv preprint arXiv:1511.00291},
-  year={2015},
-  url={http://arxiv.org/pdf/1511.00291.pdf}
+  journal={Operations Research Letters},
+  volume={44},
+  number={3},
+  pages={313--318},
+  year={2016},
+  issn={0167-6377},
+  doi={10.1016/j.orl.2016.02.011},
+  url={http://dx.doi.org/10.1016/j.orl.2016.02.011}
 }
 ```
