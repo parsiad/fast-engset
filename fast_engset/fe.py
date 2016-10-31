@@ -101,13 +101,11 @@ def __hyp2f1_coefficients(m, N):
 
     return c
 
-def __hyp2f1(c, m, N, E, x, tol):
+def __hyp2f1(c, m, x, tol):
     """ Computes 1/f(P) = hyp2f1(1, -m, N-m, -x).
 
-    c   -- coefficients computed by fe.__coefficients.
+    c   -- coefficients computed by fe.__hyp2f1_coefficients.
     m   -- a positive integer.
-    N   -- a positive integer greater than m.
-    E   -- a real number.
     x   -- a real number.
     tol -- error tolerance.
     """
@@ -142,11 +140,11 @@ def __newton(m, N, E, tol=pow(2,-24), P=0.5, n_max=1024, verbose=False):
 
     c = __hyp2f1_coefficients(m, N)
 
-    y = N/E-1
+    y = float(N)/E-1
     for n in range(1, n_max+1):
         x = P+y
-        f = 1/__hyp2f1(c, m, N, E, x, tol)
-        g = 1/__hyp2f1(c, m, N, E, x+tol, tol)
+        f = 1/__hyp2f1(c, m, x,     tol)
+        g = 1/__hyp2f1(c, m, x+tol, tol)
 
         P_new = P + (f - P)/( (f - g)/tol + 1 )
 
@@ -167,7 +165,7 @@ def __bisection(m, N, E, tol=pow(2,-24), n_max=1024, verbose=False):
 
     c = __hyp2f1_coefficients(m, N)
 
-    y = N/E-1
+    y = float(N)/E-1
     lo = 0.
     hi = 1.
     for n in range(1, n_max+1):
@@ -177,8 +175,8 @@ def __bisection(m, N, E, tol=pow(2,-24), n_max=1024, verbose=False):
             if verbose: return (P, n)
             return P
 
-        if 1/__hyp2f1(c, m, N, E, P+y, tol) < P: hi = P
-        else:                                    lo = P
+        if 1/__hyp2f1(c, m, P+y, tol) < P: hi = P
+        else:                              lo = P
 
 def __fixed_point(m, N, E, tol=pow(2,-24), P=0.5, n_max=1024, verbose=False):
     """ Computes the blocking probability of a finite population queue as given
@@ -189,9 +187,9 @@ def __fixed_point(m, N, E, tol=pow(2,-24), P=0.5, n_max=1024, verbose=False):
 
     c = __hyp2f1_coefficients(m, N)
 
-    y = N/E-1
+    y = float(N)/E-1
     for n in range(1, n_max+1):
-        P_new = 1/__hyp2f1(c, m, N, E, P+y, tol)
+        P_new = 1/__hyp2f1(c, m, P+y, tol)
 
         if abs(P - P_new) <= tol:
             if verbose: return (P_new, n)
