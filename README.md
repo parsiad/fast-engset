@@ -1,7 +1,7 @@
 fast-engset
 ===========
 
-Python/MATLAB/GNU Octave code to compute the blocking probability ```P``` in the Engset model:
+MATLAB/GNU Octave code to compute the blocking probability ```P``` in the Engset model:
 
 ```
                          m                              
@@ -18,23 +18,6 @@ P = --------------------------    where    A = -------------.
 
 __Warning__: Certain texts use instead the __normalized__ offered traffic,  which is instead defined as ```E = lambda mu / N```.
 
-Python
------------------
-
-```python
-import fast_engset as fe
-
-m = 5  # Number of servers
-N = 10 # Number of sources
-E = 2  # Total offered traffic from all sources
-
-% Blocking probability
-P = fe.compute(m, N, E)
-```
-
-MATLAB/GNU Octave
------------------
-
 ```matlab
 m = 5  % Number of servers
 N = 10 % Number of sources
@@ -42,4 +25,24 @@ E = 2  % Total offered traffic from all sources
 
 % Blocking probability
 P = fast_engset(m, N, E)
+```
+
+Citation
+========
+
+If you are using this in an academic work, please cite the corresponding paper:
+
+```
+@article{azimzadeh2015fast,
+  title={Fast Engset computation},
+  author={Azimzadeh, Parsiad and Carpenter, Tommy},
+  journal={Operations Research Letters},
+  volume={44},
+  number={3},
+  pages={313--318},
+  year={2016},
+  issn={0167-6377},
+  doi={10.1016/j.orl.2016.02.011},
+  url={http://dx.doi.org/10.1016/j.orl.2016.02.011}
+}
 ```
