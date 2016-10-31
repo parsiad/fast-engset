@@ -1,6 +1,8 @@
 fast-engset
 ===========
 
+__Warning__: This is a legacy release (for MATLAB/GNU Octave users) that is now unmaintained. Please consider using the Python version (see https://github.com/parsiad/fast-engset/releases for the latest releases), which is actively maintained.
+
 MATLAB/GNU Octave code to compute the blocking probability ```P``` in the Engset model:
 
 ```
