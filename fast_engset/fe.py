@@ -28,12 +28,22 @@ Computes the blocking probability of a finite population queue.
 If you are using this in an academic work, please cite the corresponding
 paper:
 
-@article{azimzadeh2015fast,
-  title={Fast Engset computation},
-  author={Azimzadeh, Parsiad and Carpenter, Tommy},
-  journal={arXiv preprint arXiv:1511.00291},
-  year={2015},
-  url={http://arxiv.org/pdf/1511.00291.pdf}
+@article {MR3503106,
+    AUTHOR = {Azimzadeh, P. and Carpenter, T.},
+     TITLE = {Fast {E}ngset computation},
+   JOURNAL = {Oper. Res. Lett.},
+  FJOURNAL = {Operations Research Letters},
+    VOLUME = {44},
+      YEAR = {2016},
+    NUMBER = {3},
+     PAGES = {313--318},
+      ISSN = {0167-6377},
+     CODEN = {ORLED5},
+   MRCLASS = {90B22 (60K30)},
+  MRNUMBER = {3503106},
+MRREVIEWER = {Vyacheslav M. Abramov},
+       DOI = {10.1016/j.orl.2016.02.011},
+       URL = {http://dx.doi.org/10.1016/j.orl.2016.02.011},
 }
 
 Example usage:
@@ -69,7 +79,7 @@ def compute(m, N, E, tol=1e-6):
         raise ValueError('The number of sources must be a nonnegative integer.')
     N = int(N)
 
-    if E <= 0:
+    if E <= 0.:
         raise ValueError('The offered traffic must be a positive number.')
 
     # Trivial cases
@@ -77,6 +87,33 @@ def compute(m, N, E, tol=1e-6):
     if m == 0: return 1
 
     return __newton(m, N, E, tol=tol)
+
+def reverse(P, N, E, tol=1e-6):
+    """ Computes the minimum number of servers required for a finite population
+    queue to function below a specified blocking probability.
+
+    P       -- desired blocking probability.
+    N       -- number of sources (a nonnegative integer).
+    E       -- total offered traffic from all sources (a positive number) given
+               by E = N * alpha, where alpha is the offered traffic per-source.
+    tol     -- Error tolerance (default 1e-6).
+    """
+
+    # Error checking
+    if P < 0. or P > 1.:
+        raise ValueError('The desired blocking probability must be a number between zero and unity.')
+
+    if N < 0 or N % 1 != 0:
+        raise ValueError('The number of sources must be a nonnegative integer.')
+
+    if E <= 0.:
+        raise ValueError('The offered traffic must be a positive number.')
+
+    # Trivial cases
+    if P == 1. or N == 0: return 0
+    if P == 0.: return N
+
+    return __bisection_reverse(P, N, E)
 
 ################################################################################
 
@@ -196,4 +233,27 @@ def __fixed_point(m, N, E, tol=pow(2,-24), P=0.5, n_max=1024, verbose=False):
             return P_new
 
         P = P_new
+
+################################################################################
+
+def __bisection_reverse(P, N, E, tol=pow(2,-24)):
+    """ Computes the minimum number of servers required for a finite population
+    queue to function below a specified blocking probability.
+
+    tol     -- error tolerance (default 2^-24).
+    """
+
+    y = float(N)/E-1
+    lo = 1
+    hi = N
+    while True:
+        m = int((lo + hi) / 2)
+
+        if lo == hi: return m
+
+        c = __hyp2f1_coefficients(m, N)
+        if 1/__hyp2f1(c, m, P+y, tol) < P: hi = m
+        else:                              lo = m+1
+
+    return m
 
