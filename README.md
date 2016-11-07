@@ -41,16 +41,21 @@ Citation
 If you are using this in an academic work, please cite the corresponding paper:
 
 ```
-@article{azimzadeh2015fast,
-  title={Fast Engset computation},
-  author={Azimzadeh, Parsiad and Carpenter, Tommy},
-  journal={Operations Research Letters},
-  volume={44},
-  number={3},
-  pages={313--318},
-  year={2016},
-  issn={0167-6377},
-  doi={10.1016/j.orl.2016.02.011},
-  url={http://dx.doi.org/10.1016/j.orl.2016.02.011}
+@article {MR3503106,
+    AUTHOR = {Azimzadeh, P. and Carpenter, T.},
+     TITLE = {Fast {E}ngset computation},
+   JOURNAL = {Oper. Res. Lett.},
+  FJOURNAL = {Operations Research Letters},
+    VOLUME = {44},
+      YEAR = {2016},
+    NUMBER = {3},
+     PAGES = {313--318},
+      ISSN = {0167-6377},
+     CODEN = {ORLED5},
+   MRCLASS = {90B22 (60K30)},
+  MRNUMBER = {3503106},
+MRREVIEWER = {Vyacheslav M. Abramov},
+       DOI = {10.1016/j.orl.2016.02.011},
+       URL = {http://dx.doi.org/10.1016/j.orl.2016.02.011},
 }
 ```
