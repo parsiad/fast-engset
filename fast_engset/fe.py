@@ -262,7 +262,8 @@ def __bisection_reverse(P, N, E, tol=pow(2,-24)):
 # Unit Tests
 import unittest
 class tests(unittest.TestCase):
-    def test_compute(self): self.assertAlmostEqual(compute(40, 400, 40, tol=1e-12), 0.11423593220833521, places=5)
+    def test_compute(self): self.assertAlmostEqual( \
+                                compute(40, 400, 40, tol=1e-12), 0.114235932208)
     def test_reverse(self): self.assertEqual(reverse(0.115, 400, 40), 40)
 
 if __name__ == '__main__': unittest.main()
