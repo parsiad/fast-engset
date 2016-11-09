@@ -105,6 +105,7 @@ def reverse(P, N, E, tol=1e-6):
 
     if N < 0 or N % 1 != 0:
         raise ValueError('The number of sources must be a nonnegative integer.')
+    N = int(N)
 
     if E <= 0.:
         raise ValueError('The offered traffic must be a positive number.')
