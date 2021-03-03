@@ -7,20 +7,20 @@ fast-engset uses Numba for JIT compilation and is tested against thousands of sy
 
 ## Table of contents
 
-* [Citation](#📔-citation)
-* [Installation](#💾-installation)
-* [The Engset formula](#🧑‍🏫-the-engset-formula)
-* [Tutorial](#🧑‍🏫-tutorial)
+* [Citation](#-citation)
+* [Installation](#-installation)
+* [The Engset formula](#-the-engset-formula)
+* [Tutorial](#-tutorial)
   * [Computing the blocking probability](#computing-the-blocking-probability)
   * [Computing the minimum number of servers required](#computing-the-minimum-number-of-servers-required)
   * [Computing the maximum number of sources serviceable](#computing-the-maximum-number-of-sources-serviceable)
   * [Computing the offered traffic](#computing-the-offered-traffic)
-* [Advanced](#🦸-advanced)
+* [Advanced](#-advanced)
   * [Specifying the algorithm](#specifying-the-algorithm)
   * [Specifying an initial guess](#specifying-an-initial-guess)
   * [Disabling JIT compilation](#disabling-jit-compilation)
   * [Disabling logging](#disabling-logging)
-* [Timing results](#⌛-timing-results)
+* [Timing results](#-timing-results)
   * [JIT enabled](#jit-enabled)
   * [JIT disabled](#jit-disabled)
 
@@ -28,7 +28,7 @@ fast-engset uses Numba for JIT compilation and is tested against thousands of sy
 
 If you use this in an academic or otherwise public work, **please cite the corresponding journal article**:
 
-[Azimzadeh, Parsiad](https://parsiad.ca), and Tommy Carpenter. "Fast Engset computation." *Operations Research Letters* 44.3 (2016): 313-318. [\[arXiv\]](https://arxiv.org/abs/1511.00291) [\[bibtex\]](MR3503106.bib) [\[doi\]](https://doi.org/10.1016/j.orl.2016.02.011) [\[pdf\]](https://arxiv.org/pdf/1511.00291.pdf) [\[pypi\]](https://pypi.python.org/pypi/fast-engset/)
+[Azimzadeh, Parsiad](https://parsiad.ca), and Tommy Carpenter. "Fast Engset computation." *Operations Research Letters* 44.3 (2016): 313-318. [\[arXiv\]](https://arxiv.org/abs/1511.00291) [\[bibtex\]](https://raw.githubusercontent.com/parsiad/fast-engset/master/MR3503106.bib) [\[doi\]](https://doi.org/10.1016/j.orl.2016.02.011) [\[pdf\]](https://arxiv.org/pdf/1511.00291.pdf) [\[pypi\]](https://pypi.python.org/pypi/fast-engset/)
 
 ## 💾 Installation
 
@@ -38,20 +38,20 @@ pip install fast_engset
 
 ## 🧑‍🏫 The Engset formula
 
-<img alt="Tore Olaus Engset" src="images/engset.jpg" style="border-radius: 25px; float: right; margin: 0 0 1em 1em;">
+![](https://raw.githubusercontent.com/parsiad/fast-engset/master/images/engset.jpg)
 
 The [Engset formula](https://en.wikipedia.org/wiki/Engset_formula) describes the blocking probability of a particular type of (finite population) queue.
 
 It is given by
 
-![](images/formula.svg)
+![](https://raw.githubusercontent.com/parsiad/fast-engset/master/images/formula.svg)
 
 *P* is the **blocking probability**, *c* is the **number of servers** (a.k.a. lines), *N* is the **number of sources**, λ is the idle source arrival rate, and *h* is the average holding time.
 
 In practice, λ is unknown (or hard to estimate) while α, the **offered traffic** per-source, is known.
 In this case, the relationship
 
-![](images/substitution.svg)
+![](https://raw.githubusercontent.com/parsiad/fast-engset/master/images/substitution.svg)
 
 is substituted into the Engset formula.
 
@@ -208,7 +208,7 @@ assumed to offer at most one Erlang of traffic)
 
 ### Specifying the algorithm
 
-Some of the routines discussed in the [Tutorial](#🧑‍🏫-tutorial) support more than one numerical algorithm.
+Some of the routines discussed in the **Tutorial** section above support more than one numerical algorithm.
 The table below summarizes support:
 
 ✅ **Supported**
