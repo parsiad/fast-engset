@@ -1,3 +1,5 @@
+[![Downloads](https://static.pepy.tech/personalized-badge/fast-engset?period=total&units=international_system&left_color=grey&right_color=blue&left_text=PyPI%20Downloads)](https://pepy.tech/project/fast-engset)
+
 # 🏃💨 fast-engset
 
 **fast-engset** is a Python package providing fast and accurate routines to compute various quantities in the Engset model (detailed below).
