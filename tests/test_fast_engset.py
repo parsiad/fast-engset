@@ -7,7 +7,7 @@ import pytest
 import fast_engset as fe
 
 
-def _rand_params_list(n_params=1, max_n_sources=100, min_blocking_prob=1e-6):
+def _rand_params_list(n_params=1000, max_n_sources=100, min_blocking_prob=1e-6):
     params_list = []
     while len(params_list) < n_params:
         n_sources = np.random.randint(low=2, high=max_n_sources)
