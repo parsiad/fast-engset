@@ -1,3 +1,4 @@
+![](https://github.com/parsiad/fast-engset/actions/workflows/tox.yml/badge.svg)
 [![Downloads](https://static.pepy.tech/personalized-badge/fast-engset?period=total&units=international_system&left_color=grey&right_color=blue&left_text=PyPI%20Downloads)](https://pepy.tech/project/fast-engset)
 
 # 🏃💨 fast-engset
