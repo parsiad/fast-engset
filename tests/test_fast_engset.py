@@ -131,7 +131,6 @@ def test_blocking_prob(blocking_prob, n_servers, n_sources, total_traffic):
 
 @pytest.mark.parametrize("blocking_prob,n_servers,n_sources,total_traffic", _rand_params_list())
 def test_n_servers(blocking_prob, n_servers, n_sources, total_traffic):
-
     """Test computing the number of servers."""
     max_n_iters = 1024
 
