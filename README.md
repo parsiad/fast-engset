@@ -1,7 +1,10 @@
+<p align="center">
+  <img alt="fast-engset" src="https://github.com/parsiad/fast-engset/blob/master/logo.png?raw=true">
+</p>
+
 ![](https://github.com/parsiad/fast-engset/actions/workflows/tox.yml/badge.svg)
 [![Downloads](https://static.pepy.tech/personalized-badge/fast-engset?period=total&units=international_system&left_color=grey&right_color=blue&left_text=PyPI%20Downloads)](https://pepy.tech/project/fast-engset)
-
-# 🏃💨 fast-engset
+<a href="https://github.com/parsiad/fast-engset"><img alt="GitHub" src="https://img.shields.io/badge/github-%23121011.svg?logo=github"></a>
 
 **fast-engset** is a Python package providing fast and accurate routines to compute various quantities in the Engset model (detailed below).
 It is released under an MIT License.
