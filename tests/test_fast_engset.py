@@ -1,6 +1,5 @@
 """test_fast_engset.py"""
 
-
 import numpy as np
 import pytest
 
